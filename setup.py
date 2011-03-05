@@ -18,9 +18,12 @@ setup(name="tlslite",
       version="0.3.8",
       author="Trevor Perrin",
       author_email="trevp@trevp.net",
+      maintainer = "Tomer Filiba",
+      author_email="tomerfiliba@gmail.com",
       url="http://trevp.net/tlslite/",
       description="tlslite implements SSL and TLS with SRP, shared-keys, cryptoID, or X.509 authentication.",
       license="public domain",
       scripts=["scripts/tls.py", "scripts/tlsdb.py"],
       packages=["tlslite", "tlslite.utils", "tlslite.integration"],
-      ext_modules=exts)
+      ext_modules=exts
+)
