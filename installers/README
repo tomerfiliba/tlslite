@@ -1,0 +1,19 @@
+This is a port of tlslite-0.3.8 (http://trevp.net/tlslite/), which is no longer
+active developed by its author, Trevor Perrin.
+
+Since RPyC integrates with tlslite for TLS support, the project has been ported
+for newer versions of Python (namely, 2.6 and 2.7). You can find the modified 
+versions here, as well as the original distribution by Trevor (the file
+named tlslite-0.3.8-py2.2-2.5 -- mirrored in case of unavailability of his site)
+
+Python 2.2, 2.3, 2.4, 2.5 -- Use tlslite-0.3.8-py2.2-2.5. Windows installers
+are provided for Python 2.3 and 2.4 (taken from the original distribution by
+Trevor).
+
+Python 2.6 and 2.7 can use the other distributions provided on this site, which
+include source distributions and Windows installers for Python 2.6 and 2.7.
+I don't have Visual Studio 2003, so I can't build the binaries for Python 2.5, 
+sorry. 
+
+The source code is available at http://github.com/tomerfiliba/tlslite;
+Licensed as public domain, as the original library.
