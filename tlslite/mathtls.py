@@ -4,8 +4,8 @@ from utils.compat import *
 from utils.cryptomath import *
 
 import hmac
-import md5
-import sha
+from hashlib import md5
+from hashlib import sha1
 
 #1024, 1536, 2048, 3072, 4096, 6144, and 8192 bit groups]
 goodGroupParameters = [(2,0xEEAF0AB9ADB38DD69C33F80AFA8FC5E86072618775FF3C0B9EA2314C9C256576D674DF7496EA81D3383B4813D692C6E0E0D5D8E250B98BE48E495C1D6089DAD15DC7D7B46154D6B6CE8EF4AD69B15D4982559B297BCF1885C529F566660E57EC68EDBC3C05726CC02FD4CBF4976EAA9AFD5138FE8376435B9FC61D2FC0EB06E3),\
@@ -54,8 +54,8 @@ def PRF_SSL(secret, seed, length):
     index = 0
     for x in range(26):
         A = chr(ord('A')+x) * (x+1) # 'A', 'BB', 'CCC', etc..
-        input = secretStr + sha.sha(A + secretStr + seedStr).digest()
-        output = md5.md5(input).digest()
+        input = secretStr + sha1(A + secretStr + seedStr).digest()
+        output = md5(input).digest()
         for c in output:
             if index >= length:
                 return bytes
@@ -68,7 +68,7 @@ def makeX(salt, username, password):
         raise ValueError("username too long")
     if len(salt)>=256:
         raise ValueError("salt too long")
-    return stringToNumber(sha.sha(salt + sha.sha(username + ":" + password)\
+    return stringToNumber(sha1(salt + sha1(username + ":" + password)\
            .digest()).digest())
 
 #This function is used by VerifierDB.makeVerifier
@@ -88,10 +88,10 @@ def PAD(n, x):
     return s
 
 def makeU(N, A, B):
-  return stringToNumber(sha.sha(PAD(N, A) + PAD(N, B)).digest())
+  return stringToNumber(sha1(PAD(N, A) + PAD(N, B)).digest())
 
 def makeK(N, g):
-  return stringToNumber(sha.sha(numberToString(N) + PAD(N, g)).digest())
+  return stringToNumber(sha1(numberToString(N) + PAD(N, g)).digest())
 
 
 """
@@ -113,7 +113,7 @@ class MAC_SSL:
         digestmod: A module supporting PEP 247. Defaults to the md5 module.
         """
         if digestmod is None:
-            import md5
+            from hashlib import md5
             digestmod = md5
 
         if key == None: #TREVNEW - for faster copying
