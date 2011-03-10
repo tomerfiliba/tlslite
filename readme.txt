@@ -4,9 +4,9 @@ Trevor Perrin <trevp at trevp.net>
 http://trevp.net/tlslite/
 ============================================================================
 
-Ported to python 2.6 and 3.2 by Tomer Filiba (tomerfiliba at gmail.com),
+Ported to python 2.5, 2.6 and 2.7 by Tomer Filiba (tomerfiliba at gmail.com),
 for integrated TLS support in RPyC (http://rpyc.wikidot.com). 
-http://github.com/tomerfiliba/tlslite
+Adapted sources can be found at http://github.com/tomerfiliba/tlslite
 
 ===============================================================================
 
