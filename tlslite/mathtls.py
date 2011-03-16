@@ -39,7 +39,7 @@ def PRF(secret, label, seed, length):
 
     #Run the left half through P_MD5 and the right half through P_SHA1
     p_md5 = P_hash(md5, S1, concatArrays(stringToBytes(label), seed), length)
-    p_sha1 = P_hash(sha, S2, concatArrays(stringToBytes(label), seed), length)
+    p_sha1 = P_hash(sha1, S2, concatArrays(stringToBytes(label), seed), length)
 
     #XOR the output values and return the result
     for x in range(length):

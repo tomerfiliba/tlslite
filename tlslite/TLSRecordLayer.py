@@ -1001,9 +1001,9 @@ class TLSRecordLayer:
         clientIVBlock  = bytesToString(p.getFixBytes(ivLength))
         serverIVBlock  = bytesToString(p.getFixBytes(ivLength))
         clientPendingState.macContext = createMACFunc(clientMACBlock,
-                                                      digestmod=sha)
+                                                      digestmod=sha1)
         serverPendingState.macContext = createMACFunc(serverMACBlock,
-                                                      digestmod=sha)
+                                                      digestmod=sha1)
         clientPendingState.encContext = createCipherFunc(clientKeyBlock,
                                                          clientIVBlock,
                                                          implementations)
